@@ -1,5 +1,6 @@
 let iconos = []
 let selecciones = []
+let c=0;
 
 generarTablero()
 
@@ -31,6 +32,7 @@ const cargarSonido = function (fuente) {
 };
 
 const miAudio2=cargarSonido("nuevo_juego.mp3")
+const miAudio3=cargarSonido("memo-rock audio.mp3");
 
 function generarTablero() {
     cargarIconos()
@@ -90,7 +92,25 @@ function deseleccionar(selecciones) {
             tarjeta2.style.transform = "rotateY(0deg)"
         }else{
             miAudio.play();
+            c=c+1;
+            fin();
         }
           
     }, 800);
+}
+
+function fin()
+{
+
+    if(c===12)
+    {
+    Swal.fire(
+        'Felicitaciones!!',
+        '',
+        'success'
+      )
+
+      miAudio3.play();
+    }
+    
 }
